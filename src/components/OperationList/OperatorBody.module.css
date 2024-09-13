@@ -1,0 +1,30 @@
+.body {
+  display: flex;
+  width: 228px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.body.hide {
+  animation-name: hideList;
+  animation-duration: 1s;
+  display: none;
+}
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  align-self: stretch;
+}
+
+@keyframes hideList {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

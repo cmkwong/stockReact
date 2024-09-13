@@ -1,0 +1,12 @@
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter img {
+  width: 26px;
+  height: 26px;
+  display: block;
+  /* transform: rotate(45deg); */
+}

@@ -1,0 +1,28 @@
+.block {
+  display: flex;
+  height: 93px;
+  padding: 30px 23px 29px 23px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  /* style */
+  border-radius: 5px;
+  border: 10px solid #555;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.text_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.text_container p {
+  color: var(--Black-900, #2c2c2c);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
