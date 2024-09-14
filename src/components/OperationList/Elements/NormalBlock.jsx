@@ -7,16 +7,13 @@ import { Handle, Position } from '@xyflow/react';
 const NormalBlock = () => {
   return (
     <div>
-      <div className={styles['container']}>
-        <img src={Normal_Block_svg} alt="Normal Block" />
+      <div className={styles['block']}>
         <div className={styles['text_container']}>
           <p>Normal Block</p>
         </div>
+        <Handle type="target" position={Position.Left} isConnectable={true} />
+        <Handle type="source" position={Position.Right} isConnectable={true} />
       </div>
-      {/* <div className={styles['block']}>
-      </div> */}
-      <Handle type="target" position={Position.Left} isConnectable={true} />
-      <Handle type="source" position={Position.Right} isConnectable={true} />
     </div>
   );
 };
