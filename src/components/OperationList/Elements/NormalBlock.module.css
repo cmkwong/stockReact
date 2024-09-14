@@ -24,11 +24,12 @@
   gap: 10px;
 }
 
-.text_container p {
+.text_container input {
   color: var(--Black-900, #2c2c2c);
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  /* line-height: normal; */
+  width: 150px;
 }

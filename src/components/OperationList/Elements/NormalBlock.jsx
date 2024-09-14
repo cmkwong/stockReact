@@ -9,7 +9,8 @@ const NormalBlock = () => {
     <div>
       <div className={styles['block']}>
         <div className={styles['text_container']}>
-          <p>Normal Block</p>
+          {/* <p>Normal Block</p> */}
+          <input type="text" placeholder="Normal Block" />
         </div>
         <Handle type="target" position={Position.Left} isConnectable={true} />
         <Handle type="source" position={Position.Right} isConnectable={true} />
