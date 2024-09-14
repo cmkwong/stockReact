@@ -7,12 +7,21 @@ import NormalBlock from './Elements/NormalBlock';
 import ConcatBlock from './Elements/ConcatBlock';
 import CombineBlock from './Elements/CombineBlock';
 import FilterBlock from './Elements/FilterBlock';
+
 import { useCallback, useState } from 'react';
+import { useDnD } from '../../store/DnDContext';
 
 const OperationList = () => {
+  const dnDContext = useDnD();
+
   const [zipHovered, setZipHovered] = useState(false);
 
   const [listHide, setListHide] = useState(true);
+
+  const onDragStart = (e, nodeType) => {
+    dnDContext.setNodeType(nodeType);
+    e.dataTransfer.effectAllowed = 'move';
+  };
 
   return (
     <div
@@ -29,10 +38,18 @@ const OperationList = () => {
         <img src={Zip_logo} alt="Zip Logo" />
       </div>
       <OperatorBody hide={listHide}>
-        <NormalBlock />
-        <ConcatBlock />
-        <CombineBlock />
-        <FilterBlock />
+        <div onDragStart={(e) => onDragStart(e, 'normal')} draggable>
+          <NormalBlock />
+        </div>
+        <div onDragStart={(e) => onDragStart(e, 'concat')} draggable>
+          <ConcatBlock />
+        </div>
+        <div onDragStart={(e) => onDragStart(e, 'combine')} draggable>
+          <CombineBlock />
+        </div>
+        <div onDragStart={(e) => onDragStart(e, 'filter')} draggable>
+          <FilterBlock />
+        </div>
       </OperatorBody>
     </div>
   );

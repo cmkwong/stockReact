@@ -1,5 +1,6 @@
 import OperationList from './OperationList/OperationList';
 import styles from './First_Flow.module.css';
+import { makeComplexId } from '../utils/strFn';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
@@ -15,6 +16,11 @@ import {
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
+import { useDnD } from '../store/DnDContext';
+import NormalBlock from './OperationList/Elements/NormalBlock';
+import CombineBlock from './OperationList/Elements/CombineBlock';
+import ConcatBlock from './OperationList/Elements/ConcatBlock';
+import FilterBlock from './OperationList/Elements/FilterBlock';
 
 const initialNodes = [
   {
@@ -32,6 +38,13 @@ const initialNodes = [
   { id: '3', position: { x: 700, y: 600 }, data: { label: 'Node 3' } },
 ];
 
+const nodeTypes = {
+  normal: NormalBlock,
+  combine: CombineBlock,
+  concat: ConcatBlock,
+  filter: FilterBlock,
+};
+
 const initialEdges = [
   { id: 'e1-2', source: ' 1', target: '2', label: 'edge-1' },
 ];
@@ -42,6 +55,9 @@ const First_Flow = () => {
   const edgeReconnectSuccessful = useRef(true);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const { screenToFlowPosition } = useReactFlow();
+
+  const dnDContext = useDnD();
 
   const countNodes = useCallback(() => {
     setCount(reactFlow.getNodes().length);
@@ -68,6 +84,7 @@ const First_Flow = () => {
     [setEdges]
   );
 
+  // when edge connection end
   const onReconnectEnd = useCallback(
     (_, edge) => {
       if (!edgeReconnectSuccessful.current) {
@@ -78,6 +95,35 @@ const First_Flow = () => {
     [setEdges]
   );
 
+  const onDrop = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      // check if the dropped element is valid
+      if (!dnDContext.nodeType) return;
+
+      const position = screenToFlowPosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+
+      const id = makeComplexId(8);
+      const newNode = {
+        id,
+        type: dnDContext.nodeType,
+        position,
+        data: { label: `${dnDContext.nodeType} node - ${id}` },
+      };
+      setNodes((nds) => nds.concat(newNode));
+    },
+    [screenToFlowPosition, dnDContext.nodeType]
+  );
+
+  const onDragOver = useCallback((event) => {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+  }, []);
+
   return (
     <>
       <div style={{ position: 'absolute', zIndex: 100 }}>
@@ -87,12 +133,15 @@ const First_Flow = () => {
         <ReactFlow
           nodes={nodes}
           edges={edges}
+          nodeTypes={nodeTypes}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onReconnect={onReconnect}
           onReconnectStart={onReconnectStart}
           onReconnectEnd={onReconnectEnd}
           onConnect={onConnect}
+          onDrop={onDrop}
+          onDragOver={onDragOver}
         >
           <Controls />
           <MiniMap />
