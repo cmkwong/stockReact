@@ -4,7 +4,7 @@ import ConcatBlock from '../OperationList/Elements/ConcatBlock';
 
 const ConcatBlockNode = () => {
   return (
-    <HandleNode nodeType={'concat'}>
+    <HandleNode>
       <ConcatBlock />
     </HandleNode>
   );

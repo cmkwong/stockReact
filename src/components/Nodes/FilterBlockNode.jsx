@@ -4,7 +4,7 @@ import FilterBlock from '../OperationList/Elements/FilterBlock';
 
 const FilterBlockNode = () => {
   return (
-    <HandleNode nodeType={'filter'}>
+    <HandleNode>
       <FilterBlock />
     </HandleNode>
   );

@@ -4,7 +4,7 @@ import CombineBlock from '../OperationList/Elements/CombineBlock';
 
 const CombineBlockNode = () => {
   return (
-    <HandleNode nodeType={'combine'}>
+    <HandleNode>
       <CombineBlock />
     </HandleNode>
   );

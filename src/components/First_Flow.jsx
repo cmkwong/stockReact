@@ -22,6 +22,11 @@ import CombineBlock from './OperationList/Elements/CombineBlock';
 import ConcatBlock from './OperationList/Elements/ConcatBlock';
 import FilterBlock from './OperationList/Elements/FilterBlock';
 
+import NormalBlockNode from './Nodes/NormalBlockNode';
+import CombineBlockNode from './Nodes/CombineBlockNode';
+import ConcatBlockNode from './Nodes/ConcatBlockNode';
+import FilterBlockNode from './Nodes/FilterBlockNode';
+
 const initialNodes = [
   {
     id: '1',
@@ -39,10 +44,10 @@ const initialNodes = [
 ];
 
 const nodeTypes = {
-  normal: NormalBlock,
-  combine: CombineBlock,
-  concat: ConcatBlock,
-  filter: FilterBlock,
+  normal: NormalBlockNode,
+  combine: CombineBlockNode,
+  concat: ConcatBlockNode,
+  filter: FilterBlockNode,
 };
 
 const initialEdges = [

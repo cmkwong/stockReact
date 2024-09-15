@@ -18,10 +18,10 @@ const OperationList = () => {
 
   const [listHide, setListHide] = useState(true);
 
-  const onDragStart = (e, nodeType) => {
+  const onDragStart = useCallback((e, nodeType) => {
     dnDContext.setNodeType(nodeType);
     e.dataTransfer.effectAllowed = 'move';
-  };
+  }, []);
 
   return (
     <div

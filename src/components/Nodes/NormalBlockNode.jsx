@@ -4,7 +4,7 @@ import NormalBlock from '../OperationList/Elements/NormalBlock';
 
 const NormalBlockNode = () => {
   return (
-    <HandleNode nodeType={'normal'}>
+    <HandleNode>
       <NormalBlock />
     </HandleNode>
   );
