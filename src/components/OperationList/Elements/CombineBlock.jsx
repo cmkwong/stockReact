@@ -3,14 +3,26 @@ import Concat_logo from '../../../assets/Concat-columns.svg';
 import { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
 
-const CombineBlock = () => {
+const CombineBlock = ({ isConnectable }) => {
   return (
     <div className={styles['combine']}>
       <div>
         <img src={Concat_logo} alt="Combine Logo" />
       </div>
-      <Handle type="target" position={Position.Left} isConnectable={true} />
-      <Handle type="source" position={Position.Right} isConnectable={true} />
+      {isConnectable && (
+        <Handle
+          type="target"
+          position={Position.Left}
+          isConnectable={isConnectable}
+        />
+      )}
+      {isConnectable && (
+        <Handle
+          type="source"
+          position={Position.Right}
+          isConnectable={isConnectable}
+        />
+      )}
     </div>
   );
 };
