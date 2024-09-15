@@ -17,16 +17,13 @@ import {
 
 import '@xyflow/react/dist/style.css';
 import { useDnD } from '../store/DnDContext';
-import NormalBlock from './OperationList/Elements/NormalBlock';
-import CombineBlock from './OperationList/Elements/CombineBlock';
-import ConcatBlock from './OperationList/Elements/ConcatBlock';
-import FilterBlock from './OperationList/Elements/FilterBlock';
 
 import NormalBlockNode from './Nodes/NormalBlockNode';
 import CombineBlockNode from './Nodes/CombineBlockNode';
 import ConcatBlockNode from './Nodes/ConcatBlockNode';
 import FilterBlockNode from './Nodes/FilterBlockNode';
 import DatabaseBlockNode from './Nodes/DatabaseBlockNode';
+import RubbishBin from './RubbishBin';
 
 const initialNodes = [
   {
@@ -135,6 +132,11 @@ const First_Flow = () => {
     <>
       <div style={{ position: 'absolute', zIndex: 100 }}>
         <OperationList />
+      </div>
+      <div
+        style={{ position: 'absolute', left: '90%', top: '5%', zIndex: 100 }}
+      >
+        <RubbishBin />
       </div>
       <div className={styles['reactflow-wrapper']}>
         <ReactFlow
