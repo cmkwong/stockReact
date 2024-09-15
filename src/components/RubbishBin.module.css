@@ -17,7 +17,7 @@
 }
 
 .trash {
-  background: #0866ff;
+  background: #555;
   width: 66px;
   height: 80px;
   display: inline-block;
@@ -43,7 +43,7 @@
 .trash span {
   position: absolute;
   height: 12px;
-  background: #0866ff;
+  background: #555;
   top: -19px;
   left: -10px;
   right: -10px;
@@ -59,7 +59,7 @@
   position: absolute;
   width: 27px;
   height: 7px;
-  background: #0866ff;
+  background: #555;
   top: -10px;
 
   border-top-left-radius: 10px;

@@ -134,7 +134,7 @@ const First_Flow = () => {
         <OperationList />
       </div>
       <div
-        style={{ position: 'absolute', left: '90%', top: '5%', zIndex: 100 }}
+        style={{ position: 'absolute', left: '95%', top: '5%', zIndex: 100 }}
       >
         <RubbishBin />
       </div>
