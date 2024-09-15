@@ -26,6 +26,7 @@ import NormalBlockNode from './Nodes/NormalBlockNode';
 import CombineBlockNode from './Nodes/CombineBlockNode';
 import ConcatBlockNode from './Nodes/ConcatBlockNode';
 import FilterBlockNode from './Nodes/FilterBlockNode';
+import DatabaseBlockNode from './Nodes/DatabaseBlockNode';
 
 const initialNodes = [
   {
@@ -48,6 +49,7 @@ const nodeTypes = {
   combine: CombineBlockNode,
   concat: ConcatBlockNode,
   filter: FilterBlockNode,
+  database: DatabaseBlockNode,
 };
 
 const initialEdges = [

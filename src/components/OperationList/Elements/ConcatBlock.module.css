@@ -1,11 +1,11 @@
-.concat {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: grab;
 }
 
-.concat img {
+.container img {
   width: 40px;
   height: 40px;
   display: block;

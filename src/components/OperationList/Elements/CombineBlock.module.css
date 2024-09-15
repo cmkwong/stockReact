@@ -1,11 +1,11 @@
-.combine {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: grab;
 }
 
-.combine img {
+.container img {
   width: 40px;
   height: 40px;
   display: block;

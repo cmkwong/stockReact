@@ -4,7 +4,7 @@ import Filter_logo from '../../../assets/Filter-triangle.svg';
 const FilterBlock = () => {
   return (
     <div>
-      <div className={styles['filter']}>
+      <div className={styles['container']}>
         <img src={Filter_logo} alt="Filter Logo" />
       </div>
     </div>

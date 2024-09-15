@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.container input {
+  /* font style */
+  color: var(--Black-900, #2c2c2c);
+  font-family: Inter;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+  /* layout */
+  background: none;
+  border: none;
+  position: absolute;
+  text-align: center;
+  height: 12px;
+  width: 50%;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

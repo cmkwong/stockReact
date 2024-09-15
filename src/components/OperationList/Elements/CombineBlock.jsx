@@ -3,7 +3,7 @@ import Concat_logo from '../../../assets/Concat-columns.svg';
 
 const CombineBlock = () => {
   return (
-    <div className={styles['combine']}>
+    <div className={styles['container']}>
       <div>
         <img src={Concat_logo} alt="Combine Logo" />
       </div>

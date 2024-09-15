@@ -3,7 +3,7 @@ import Concat_logo from '../../../assets/Concat-columns.svg';
 
 const ConcatBlock = () => {
   return (
-    <div className={styles['concat']}>
+    <div className={styles['container']}>
       <div>
         <img src={Concat_logo} alt="Concat Logo" />
       </div>

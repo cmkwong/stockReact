@@ -1,4 +1,4 @@
-.block {
+.container {
   position: relative;
   display: flex;
   height: 93px;
@@ -13,18 +13,14 @@
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
-/* .container {
-  position: relative;
-} */
-
-.text_container {
+.text_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.text_container input {
+.text_wrapper input {
   color: var(--Black-900, #2c2c2c);
   font-family: Inter;
   font-size: 20px;

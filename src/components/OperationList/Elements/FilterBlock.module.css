@@ -1,11 +1,11 @@
-.filter {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: grab;
 }
 
-.filter img {
+.container img {
   width: 26px;
   height: 26px;
   display: block;

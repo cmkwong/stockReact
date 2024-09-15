@@ -7,6 +7,7 @@ import NormalBlock from './Elements/NormalBlock';
 import ConcatBlock from './Elements/ConcatBlock';
 import CombineBlock from './Elements/CombineBlock';
 import FilterBlock from './Elements/FilterBlock';
+import DatabaseBlock from './Elements/DatabaseBlock';
 
 import { useCallback, useState } from 'react';
 import { useDnD } from '../../store/DnDContext';
@@ -40,6 +41,9 @@ const OperationList = () => {
       <OperatorBody hide={listHide}>
         <div onDragStart={(e) => onDragStart(e, 'normal')} draggable>
           <NormalBlock />
+        </div>
+        <div onDragStart={(e) => onDragStart(e, 'database')} draggable>
+          <DatabaseBlock />
         </div>
         <div onDragStart={(e) => onDragStart(e, 'concat')} draggable>
           <ConcatBlock />
