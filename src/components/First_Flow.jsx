@@ -59,9 +59,9 @@ const First_Flow = () => {
 
   const dnDContext = useDnD();
 
-  const countNodes = useCallback(() => {
-    setCount(reactFlow.getNodes().length);
-  }, [reactFlow]);
+  // const countNodes = useCallback(() => {
+  //   setCount(reactFlow.getNodes().length);
+  // }, [reactFlow]);
 
   useEffect(() => {
     console.log(`Node Count: ${count}`);
@@ -142,6 +142,7 @@ const First_Flow = () => {
           onConnect={onConnect}
           onDrop={onDrop}
           onDragOver={onDragOver}
+          onNodeDoubleClick={(e, node) => console.log(e, node)}
         >
           <Controls />
           <MiniMap />

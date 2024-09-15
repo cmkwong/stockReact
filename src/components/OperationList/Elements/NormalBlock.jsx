@@ -8,7 +8,6 @@ const NormalBlock = ({ isConnectable }) => {
   return (
     <div className={styles['block']}>
       <div className={styles['text_container']}>
-        {/* <p>Normal Block</p> */}
         <input type="text" placeholder="Normal Block" />
       </div>
       {isConnectable && (
@@ -16,6 +15,7 @@ const NormalBlock = ({ isConnectable }) => {
           type="target"
           position={Position.Left}
           isConnectable={isConnectable}
+          style={{ background: 'blue' }}
         />
       )}
       {isConnectable && (
