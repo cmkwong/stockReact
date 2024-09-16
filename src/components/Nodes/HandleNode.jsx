@@ -2,8 +2,6 @@ import styles from './HandleNode.module.css';
 import { makeComplexId } from '../../utils/strFn';
 
 import { Handle, Position } from '@xyflow/react';
-import { useDnD } from '../../store/DnDContext';
-import { useCallback } from 'react';
 
 const HandleNode = ({ children }) => {
   return (

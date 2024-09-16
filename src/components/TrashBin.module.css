@@ -31,6 +31,7 @@
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+
 /* .trash:after {
   content: 'Mouse hover on Recile Bin';
   position: absolute;
@@ -52,8 +53,9 @@
   border-top-right-radius: 5px;
   transform: rotate(0deg);
   transition: transform 250ms;
-  transform-origin: 19% 100%;
+  transform-origin: 100% 19%;
 }
+
 .trash span:after {
   content: '';
   position: absolute;
@@ -79,6 +81,7 @@
   margin: 7px auto;
   border-radius: 3px;
 }
+
 .trash i:after {
   content: '';
   width: 3px;
@@ -88,6 +91,7 @@
   left: -9px;
   border-radius: 3px;
 }
+
 .trash i:before {
   content: '';
   width: 3px;
@@ -98,7 +102,7 @@
   border-radius: 3px;
 }
 
-.trash:hover span {
-  transform: rotate(-45deg);
+.trash span.hover {
+  transform: rotate(25deg);
   transition: transform 250ms;
 }

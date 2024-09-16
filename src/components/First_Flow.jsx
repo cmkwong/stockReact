@@ -23,7 +23,7 @@ import CombineBlockNode from './Nodes/CombineBlockNode';
 import ConcatBlockNode from './Nodes/ConcatBlockNode';
 import FilterBlockNode from './Nodes/FilterBlockNode';
 import DatabaseBlockNode from './Nodes/DatabaseBlockNode';
-import RubbishBin from './RubbishBin';
+import TrashBin from './TrashBin';
 
 const initialNodes = [
   {
@@ -67,9 +67,9 @@ const First_Flow = () => {
   //   setCount(reactFlow.getNodes().length);
   // }, [reactFlow]);
 
-  useEffect(() => {
-    console.log(`Node Count: ${count}`);
-  }, [count]);
+  // useEffect(() => {
+  //   console.log(`Node Count: ${count}`);
+  // }, [count]);
 
   const onConnect = useCallback(
     (params) => setEdges((els) => addEdge(params, els)),
@@ -99,10 +99,10 @@ const First_Flow = () => {
     [setEdges]
   );
 
+  // when block being drop
   const onDrop = useCallback(
     (e) => {
       e.preventDefault();
-
       // check if the dropped element is valid
       if (!dnDContext.nodeType) return;
 
@@ -123,10 +123,21 @@ const First_Flow = () => {
     [screenToFlowPosition, dnDContext.nodeType]
   );
 
-  const onDragOver = useCallback((event) => {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+  const onDragOver = useCallback((e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
   }, []);
+
+  const onNodeDragStop = useCallback(
+    (e, node, _) => {
+      if (dnDContext.trashHovered) {
+        setNodes((nds) => {
+          return nds.filter((nd) => node.id !== nd.id);
+        });
+      }
+    },
+    [dnDContext.trashHovered]
+  );
 
   return (
     <>
@@ -136,7 +147,7 @@ const First_Flow = () => {
       <div
         style={{ position: 'absolute', left: '95%', top: '5%', zIndex: 100 }}
       >
-        <RubbishBin />
+        <TrashBin />
       </div>
       <div className={styles['reactflow-wrapper']}>
         <ReactFlow
@@ -144,6 +155,7 @@ const First_Flow = () => {
           edges={edges}
           nodeTypes={nodeTypes}
           onNodesChange={onNodesChange}
+          onNodeDragStop={onNodeDragStop}
           onEdgesChange={onEdgesChange}
           onReconnect={onReconnect}
           onReconnectStart={onReconnectStart}
